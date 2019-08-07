@@ -5,6 +5,7 @@ namespace Hcode\Model;
 use \Hcode\DB\Sql;
 use \Hcode\Model;
 use \Hcode\Mailer;
+use \Hcode\Model\Products;
 
 class Products extends Model {
 
@@ -15,6 +16,19 @@ class Products extends Model {
 
 		return $sql->select("SELECT * FROM tb_products ORDER BY desproduct");
 
+	}
+
+	public static function checkList($list)
+	{
+
+		foreach ($list as &$row) {
+			
+			$p = new Products();
+			$p->setData($row);
+			$row = $p->getValues();
+		}
+
+		return $list;
 	}
 
 	public function save() {

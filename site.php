@@ -1,13 +1,18 @@
 <?php
 
 use \Hcode\Page;
+use \Hcode\Model\Products;
 use \Hcode\Model\Category;
 
 $app->get('/', function() {
 
+	$products = Products::listAll();
+
 	$page = new Page();
 
-	$page->setTpl("index");
+	$page->setTpl("index", [
+		'products'=>Products::checkList($products)
+	]);
 
 });
 
