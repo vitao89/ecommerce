@@ -100,7 +100,7 @@
                                 </h2>
                                 
                                 <div class="product-carousel-price">
-                                    <ins>R$ <?php echo htmlspecialchars( $value1["vlprice"], ENT_COMPAT, 'UTF-8', FALSE ); ?></ins>
+                                    <ins>R$ <?php echo formatPrice($value1["vlprice"]); ?></ins>
                                 </div> 
                             </div>
                             <?php } ?>
